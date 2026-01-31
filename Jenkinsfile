@@ -6,13 +6,6 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Setup Python Virtual Environment') {
             steps {
                 sh '''
@@ -39,7 +32,7 @@ pipeline {
             steps {
                 sh '''
                     . ${VENV_DIR}/bin/activate
-                    python -m unittest test_baitap1.py -v
+                    python -m unittest dicover -v
                 '''
             }
         }
